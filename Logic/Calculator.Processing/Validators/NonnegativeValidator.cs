@@ -2,11 +2,11 @@
 
 namespace Calculator.Processing.Validators
 {
-    class DivisionByZeroValidator : Validator
+    class NonnegativeValidator : Validator
     {
         public override bool IsValid(double first, double second)
         {
-            return second != 0;
+            return first >= 0 && second >= 0;
         }
     }
 }

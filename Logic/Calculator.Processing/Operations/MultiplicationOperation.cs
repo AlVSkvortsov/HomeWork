@@ -11,7 +11,7 @@ namespace Calculator.Processing.Operations
         public MultiplicationOperation(IResultOutput outputManager, IReadOnlyList<IValidator> validators) : base(outputManager, validators) { }
         protected override double DoExecute(double firstArgument, double secondArgument)
         {
-            return firstArgument - secondArgument;
+            return firstArgument * secondArgument;
         }
     }
 }

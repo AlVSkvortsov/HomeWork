@@ -6,7 +6,7 @@ namespace Calculator.Core.ResultOutput
 {
     public interface IResultOutput
     {
-        double ResaltValue { get; set; }
+        double ResultValue { get; set; }
         List<string> ErrorValidate { get; set; }
         void Error<TException>(TException exception)
             where TException : Exception;

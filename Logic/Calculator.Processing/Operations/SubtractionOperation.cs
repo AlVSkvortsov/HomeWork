@@ -5,10 +5,10 @@ using System.Collections.Generic;
 
 namespace Calculator.Processing.Operations
 {
-    public class DifferenceOperation : Operation
+    public class SubtractionOperation : Operation
     {
-        public DifferenceOperation(IResultOutput outputManager) : base(outputManager) { }
-        public DifferenceOperation(IResultOutput outputManager, IReadOnlyList<IValidator> validators) : base(outputManager, validators) { }
+        public SubtractionOperation(IResultOutput outputManager) : base(outputManager) { }
+        public SubtractionOperation(IResultOutput outputManager, IReadOnlyList<IValidator> validators) : base(outputManager, validators) { }
         protected override double DoExecute(double firstArgument, double secondArgument)
         {
             return firstArgument - secondArgument;

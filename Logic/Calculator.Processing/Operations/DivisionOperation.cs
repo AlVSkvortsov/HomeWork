@@ -9,7 +9,8 @@ namespace Calculator.Processing.Operations
 {
     public class DivisionOperation : Operation
     {
-        public DivisionOperation(IResultOutput outputManager) : base(outputManager) { }
+        public DivisionOperation(IResultOutput outputManager) : base(outputManager, new List<IValidator> { new DivisionByZeroValidator() }) {}
+
         public DivisionOperation(IResultOutput outputManager, List<IValidator> validators) : base(outputManager, validators) 
         {
             if (validators.FirstOrDefault(v => v is DivisionByZeroValidator) != null)
@@ -19,7 +20,7 @@ namespace Calculator.Processing.Operations
         }
         protected override double DoExecute(double firstArgument, double secondArgument)
         {
-            return firstArgument - secondArgument;
+            return firstArgument / secondArgument;
         }
     }
 }

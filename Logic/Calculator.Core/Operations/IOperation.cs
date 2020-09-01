@@ -1,6 +1,4 @@
-﻿using Calculator.Data;
-
-namespace Calculator.Core.Operations
+﻿namespace Calculator.Core.Operations
 {
     public interface IOperation
     {

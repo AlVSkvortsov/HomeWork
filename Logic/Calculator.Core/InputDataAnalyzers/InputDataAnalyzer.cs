@@ -1,13 +1,16 @@
 ﻿using Calculator.Core.ResultOutput;
-using Calculator.Data;
 using System;
 
 namespace Calculator.Core.InputDataAnalyzers
 {
-    public class InputDataAnalyzer<TResultInfo> : IInputDataAnalyzer<TResultInfo>
+    public abstract class InputDataAnalyzer<TResultInfo> : IInputDataAnalyzer<TResultInfo>
         where TResultInfo : class, IResultOutput
     {
-        public virtual Calculation Analysis(string example, TResultInfo resultInfo)
+        private TResultInfo _resultInfo;
+        protected TResultInfo ResultInfo { get { return _resultInfo; } }
+        public InputDataAnalyzer(TResultInfo resultInfo) => _resultInfo = resultInfo;
+
+        public virtual ICalculation Analysis(string problem)
         {
             throw new NotImplementedException();
         }

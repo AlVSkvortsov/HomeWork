@@ -6,12 +6,13 @@ namespace Calculator.Processing.ResultOutput
 {
     public class DefaultResultOutput : IResultOutput
     {
-        public double ResaltValue { get; set; }
+        public double ResultValue { get; set; }
         public List<string> ErrorValidate { get; set; }
-
+        private string _errorMessage;
+        public string ErrorMessage { get { return _errorMessage; } }
         public void Error<TException>(TException exception) where TException : Exception
         {
-            throw new NotImplementedException();
+            _errorMessage = exception.Message;
         }
     }
 }

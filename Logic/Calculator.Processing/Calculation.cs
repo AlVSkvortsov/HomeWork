@@ -1,6 +1,7 @@
-﻿using System;
+﻿using Calculator.Core;
+using System;
 
-namespace Calculator.Data
+namespace Calculator.Processing
 {
     public class Calculation : ICalculation
     {

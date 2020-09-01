@@ -1,5 +1,4 @@
-﻿using Calculator.Core.InputDataAnalyzers;
-using Calculator.Core.ResultOutput;
+﻿using Calculator.Core.ResultOutput;
 
 namespace Calculator.Core.Calculators
 {

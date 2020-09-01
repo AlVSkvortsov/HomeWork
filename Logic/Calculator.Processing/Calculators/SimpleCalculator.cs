@@ -31,7 +31,7 @@ namespace Calculator.Processing.Calculators
                     operation = new SumOperation(_resultInfo).Execute;
                     break;
                 case '-':
-                    operation = new DifferenceOperation(_resultInfo).Execute;
+                    operation = new SubtractionOperation(_resultInfo).Execute;
                     break;
                 case '*':
                     operation = new MultiplicationOperation(_resultInfo).Execute;
@@ -43,7 +43,7 @@ namespace Calculator.Processing.Calculators
                     throw new Exception($"Error: Incorrect operation: {_operator}");
             }
 
-            _resultInfo.ResaltValue = new SimpleInputDataAnalyzer<TResultInfo>().Analysis(_firstArgument, _secondArgument, operation, _resultInfo).Execute();
+            _resultInfo.ResultValue = new SimpleInputDataAnalyzer<TResultInfo>(_resultInfo).Analysis(_firstArgument, _secondArgument, operation).Execute();
         }
     }
 }
