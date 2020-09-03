@@ -3,6 +3,6 @@
     public interface IOperation
     {
         string DisplayName { get; }
-        double Execute(object FirstArgument, object SecondArgument);
+        double Execute(double FirstArgument, double SecondArgument);
     }
 }

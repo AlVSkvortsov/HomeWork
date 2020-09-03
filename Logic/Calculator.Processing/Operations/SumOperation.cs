@@ -7,8 +7,8 @@ namespace Calculator.Processing.Operations
 {
     public class SumOperation : Operation
     {
-        public SumOperation(IResultOutput outputManager) : base(outputManager) { }
-        public SumOperation(IResultOutput outputManager, IReadOnlyList<IValidator> validators) : base(outputManager, validators) { }
+        public SumOperation(IResultOutput resultOutput) : base(resultOutput) { }
+        public SumOperation(IResultOutput resultOutput, IReadOnlyList<IValidator> validators) : base(resultOutput, validators) { }
         protected override double DoExecute(double firstArgument, double secondArgument)
         {
             return firstArgument + secondArgument;

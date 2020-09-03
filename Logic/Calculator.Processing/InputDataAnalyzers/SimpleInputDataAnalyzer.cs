@@ -8,9 +8,9 @@ namespace Calculator.Processing.InputDataAnalyzers
         where TResultInfo : class, IResultOutput
     {
         public SimpleInputDataAnalyzer(TResultInfo resultInfo) : base(resultInfo) { }
-        public Calculation Analysis(double firstValue, double secondValue, Func<object, object, double> functions)
+        public Calculation Analysis(double firstValue, double secondValue, Func<double, double, double> functions)
         {
-            return new Calculation(firstValue, secondValue, functions);
+            return new Calculation(new Calculation(firstValue), new Calculation(secondValue), functions);
         }
     }
 }

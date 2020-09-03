@@ -5,30 +5,32 @@ namespace Calculator.Processing
 {
     public class Calculation : ICalculation
     {
-        public object _firstCalc;
-        public object _secondCalc;
-        private Func<object, object, double> _functions { get; set; }
+        private bool _isNegative;
+        private bool _isExpression;
+        private double _value;
+        private double _firstCalc;
+        private double _secondCalc;
+        private Func<double, double, double> _functions { get; set; }
 
-        public Calculation(object firstValue, object secondValue, Func<object, object, double> functions)
+        public Calculation(double value) => _value = value;
+        public Calculation(Calculation firstValue, Calculation secondValue, Func<double, double, double> functions)
         {
-            if ((firstValue is Calculation || firstValue is double)
-                && (secondValue is Calculation || secondValue is double))
-            {
-                _firstCalc = firstValue;
-                _secondCalc = secondValue;
-                _functions = functions;
-            }
-            else
-            {
-                throw new ArgumentException("Invalid type of input parameters, 'double' or 'Calculation' must be used. "
-                    + $"Type first argument: {firstValue.GetType()}."
-                    + $"Type second argument: {secondValue.GetType()}.");
-            }
+            _isExpression = true;
+            _firstCalc = firstValue.Execute();
+            _secondCalc = secondValue.Execute();
+            _functions = functions;
+        }
+
+        public Calculation IsNegative(bool isNegative)
+        {
+            _isNegative = isNegative;
+            return this;
         }
 
         public double Execute()
         {
-            return _functions(_firstCalc, _secondCalc);
+            double result = (_isExpression) ? _functions(_firstCalc, _secondCalc) : _value;
+            return (_isNegative) ? -result : result;
         }
     }
 }

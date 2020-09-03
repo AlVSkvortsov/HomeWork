@@ -7,26 +7,20 @@ namespace Calculator.Core.Operations
 {
     public abstract class Operation : IOperation
     {
-        private readonly IResultOutput _outputManager;
+        private readonly IResultOutput _resultOutput;
         private readonly IReadOnlyList<IValidator> _validators;
         public virtual string DisplayName => this.GetType().Name;
        
-        public Operation(IResultOutput outputManager) => _outputManager = outputManager;
-        public Operation(IResultOutput outputManager, IReadOnlyList<IValidator> validators) : this(outputManager) => _validators = validators;
+        public Operation(IResultOutput resultOutput) => _resultOutput = resultOutput;
+        public Operation(IResultOutput resultOutput, IReadOnlyList<IValidator> validators) : this(resultOutput) => _validators = validators;
 
-        public double Execute(object firstArgument, object secondArgument)
+        public double Execute(double firstArgument, double secondArgument)
         {
             try
             {
-                var firstCalc = firstArgument as ICalculation;
-                var secondCalc = secondArgument as ICalculation;
-
-                double first = (firstCalc == null) ? (double)firstArgument : firstCalc.Execute();
-                double second = (secondCalc == null) ? (double)secondArgument : secondCalc.Execute();
-
-                if (Validate(first, second))
+                if (Validate(firstArgument, secondArgument))
                 {
-                    return DoExecute(first, second);
+                    return DoExecute(firstArgument, secondArgument);
                 }
                 _outputManager.Error(new Exception("Validation failed"));
             }

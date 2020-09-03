@@ -23,7 +23,7 @@ namespace Calculator.Processing.Calculators
 
         public override void Calculation()
         {
-            Func<object, object, double> operation;
+            Func<double, double, double> operation;
 
             switch (_operator)
             {

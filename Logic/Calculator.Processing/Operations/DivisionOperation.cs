@@ -9,9 +9,9 @@ namespace Calculator.Processing.Operations
 {
     public class DivisionOperation : Operation
     {
-        public DivisionOperation(IResultOutput outputManager) : base(outputManager, new List<IValidator> { new DivisionByZeroValidator() }) {}
+        public DivisionOperation(IResultOutput resultOutput) : base(resultOutput, new List<IValidator> { new DivisionByZeroValidator() }) {}
 
-        public DivisionOperation(IResultOutput outputManager, List<IValidator> validators) : base(outputManager, validators) 
+        public DivisionOperation(IResultOutput resultOutput, List<IValidator> validators) : base(resultOutput, validators) 
         {
             if (validators.FirstOrDefault(v => v is DivisionByZeroValidator) != null)
             {

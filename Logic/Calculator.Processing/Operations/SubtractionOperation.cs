@@ -7,8 +7,8 @@ namespace Calculator.Processing.Operations
 {
     public class SubtractionOperation : Operation
     {
-        public SubtractionOperation(IResultOutput outputManager) : base(outputManager) { }
-        public SubtractionOperation(IResultOutput outputManager, IReadOnlyList<IValidator> validators) : base(outputManager, validators) { }
+        public SubtractionOperation(IResultOutput resultOutput) : base(resultOutput) { }
+        public SubtractionOperation(IResultOutput resultOutput, IReadOnlyList<IValidator> validators) : base(resultOutput, validators) { }
         protected override double DoExecute(double firstArgument, double secondArgument)
         {
             return firstArgument - secondArgument;

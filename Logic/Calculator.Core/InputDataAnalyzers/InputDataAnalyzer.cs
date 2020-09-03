@@ -3,12 +3,11 @@ using System;
 
 namespace Calculator.Core.InputDataAnalyzers
 {
-    public abstract class InputDataAnalyzer<TResultInfo> : IInputDataAnalyzer<TResultInfo>
-        where TResultInfo : class, IResultOutput
+    public abstract class InputDataAnalyzer<TResultOutput> : IInputDataAnalyzer<TResultOutput>
+        where TResultOutput : class, IResultOutput
     {
-        private TResultInfo _resultInfo;
-        protected TResultInfo ResultInfo { get { return _resultInfo; } }
-        public InputDataAnalyzer(TResultInfo resultInfo) => _resultInfo = resultInfo;
+        protected TResultOutput ResultOutput { get; }
+        public InputDataAnalyzer(TResultOutput resultOutput) => ResultOutput = resultOutput;
 
         public virtual ICalculation Analysis(string expression)
         {
