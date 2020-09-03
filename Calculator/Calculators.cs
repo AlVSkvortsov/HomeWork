@@ -14,5 +14,14 @@ namespace Calculator
 
             return result;
         }
+
+        public static IResultOutput MainCalculator(string expression)
+        {
+            IResultOutput result = new DefaultResultOutput();
+
+            new MainCalculator<IResultOutput>(expression, result).Calculation();
+
+            return result;
+        }
     }
 }

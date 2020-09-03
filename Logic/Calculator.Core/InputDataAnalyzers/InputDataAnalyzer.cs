@@ -10,7 +10,7 @@ namespace Calculator.Core.InputDataAnalyzers
         protected TResultInfo ResultInfo { get { return _resultInfo; } }
         public InputDataAnalyzer(TResultInfo resultInfo) => _resultInfo = resultInfo;
 
-        public virtual ICalculation Analysis(string problem)
+        public virtual ICalculation Analysis(string expression)
         {
             throw new NotImplementedException();
         }

@@ -15,6 +15,8 @@ namespace ConsoleCalculator
 
             var test = Calculators.SimpleCalculator(5, 5, '+');
 
+            var test1 = Calculators.MainCalculator("5+7");
+
             //Calculation operations = new Calculation(5,5, new SummFunctions().Execute);
             //Calculation operations1 = new Calculation(operations, 5, new SummFunctions().Execute);
             //Calculation operations2 = new Calculation(operations, operations1, new SummFunctions().Execute);
